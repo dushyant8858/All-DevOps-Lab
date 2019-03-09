@@ -1,0 +1,5 @@
+- Ansible Inventory 
+http://docs.ansible.com/ansible/intro_inventory.html
+
+- INI-File Format
+https://en.wikipedia.org/wiki/INI_file

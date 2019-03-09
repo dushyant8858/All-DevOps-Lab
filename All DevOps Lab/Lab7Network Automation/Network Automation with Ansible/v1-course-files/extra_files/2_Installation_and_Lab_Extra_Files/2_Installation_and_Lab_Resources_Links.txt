@@ -1,0 +1,21 @@
+- Ansible Installation: 
+http://docs.ansible.com/ansible/intro_installation.html#installation
+
+- Ansible Quick Start:
+http://docs.ansible.com/ansible/quickstart.html
+
+- Ansible Network Modules:
+http://docs.ansible.com/ansible/list_of_network_modules.html
+
+- Ansible Running from Source (i.e. run the latest and greatest):
+http://docs.ansible.com/ansible/intro_installation.html#running-from-source
+
+- GNS3
+https://www.gns3.com/
+
+- Cisco VIRL
+http://virl.cisco.com/
+
+
+
+

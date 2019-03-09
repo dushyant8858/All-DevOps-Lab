@@ -1,0 +1,105 @@
+######create infra######
+client 
+web 
+db
+jenkins
+webdev
+look Vagrantfile
+
+
+
+
+
+11111111111####################install ansible on client#############
+
+
+[vagrant@localhost ~]$ history
+    1  sudo yum -y install epel-release
+    2  sudo yum -y install ansible
+    3  ansible --version
+    4  history
+## another methode of installing ansible in centos and ubuntu
+sudo easy_install pip
+pip install ansible
+
+
+
+22222222############accesss other machine########
+    4  sudo vi /etc/hosts
+		192.168.33.20	web
+		192.168.33.30	db
+		192.168.33.40	jenkins
+		192.168.33.25	webdev
+
+    5  sudo vi /etc/ansible/hosts
+		[webserver]
+		web
+		[databases]
+		db
+		
+		jenkins
+
+		webdev
+
+
+    6  ssh-keygen
+
+	ssh-copy-id vagrant@web
+	yes
+	vagrant
+
+
+	ssh-copy-id vagrant@db
+	yes
+	vagrant
+
+
+	ssh-copy-id vagrant@jenkins
+	yes
+	vagrant
+
+
+	ssh-copy-id vagrant@webdev
+	yes
+	vagrant
+
+
+
+OR*******
+
+    8  vi  /home/vagrant/.ssh/id_rsa.pub
+    9  ssh web
+   10  ssh db						[vagrant@db ~]$ 
+   								 1  vi .ssh/authorized_keys
+  								  2  sudo visudo   or vi /etc/sudoer.tmp
+									sudo ALL=(ALL) NOPASSWD:ALL
+								   3 id 
+
+END**********************************************************************************
+
+
+
+11 ansible apache -a "bash —-version"
+ansible all -a "cat /etc/hosts"
+
+12  ansible-playbook -s /vagrant/application.yml && ansible-playbook -s /vagrant/database.yml
+
+ssh web
+
+ansible-playbook -s /vagrant/database.yml
+ssh db
+
+[vagrant@db ~11  mysql -u root -padmin
+28  mysql -u dushyant_user -pdushyant_password -h 192.168.33.30
+    mysql -u dushyant_user -pdushyant_password
+
+	show databases;
+	use dushyant_database;
+
+	show tables;
+	select * from bookings;
+
+
+
+ssh web
+29  vim /var/www/html/CodeIgniter-3.1.5/application/config/database.php

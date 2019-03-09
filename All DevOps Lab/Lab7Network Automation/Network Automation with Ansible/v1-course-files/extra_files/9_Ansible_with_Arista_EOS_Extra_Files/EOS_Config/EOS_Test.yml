@@ -1,0 +1,27 @@
+---
+- name: Arista
+  hosts: "arista-devices"
+  gather_facts: false
+  connection: local
+
+  vars: 
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: arista
+      password: arista
+      authorize: true
+      transport: cli
+
+  tasks:
+    - name: configure hostname
+      eos_config: 
+        lines: hostname {{ inventory_hostname }}
+        provider: "{{ cli }}"
+      
+      register: output
+
+    - name: show output
+      debug:
+        var: output
+
+

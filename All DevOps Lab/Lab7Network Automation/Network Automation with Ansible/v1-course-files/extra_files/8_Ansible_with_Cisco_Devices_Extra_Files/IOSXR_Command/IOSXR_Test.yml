@@ -1,0 +1,26 @@
+---
+- name: IOS-XR
+  hosts: "iosxr-devices"
+  gather_facts: false
+  connection: local
+
+  vars: 
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: cisco
+      password: cisco
+      transport: cli
+
+  tasks:
+    - name: show version
+      iosxr_command: 
+        commands: show version
+        provider: "{{ cli }}"
+      
+      register: output
+
+    - name: show output
+      debug:
+        var: output.stdout
+
+

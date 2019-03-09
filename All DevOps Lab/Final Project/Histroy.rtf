@@ -1,0 +1,162 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red47\green180\blue29;
+\red64\green11\blue217;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;\cssrgb\c20238\c73898\c14947;
+\cssrgb\c32308\c18668\c88227;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \cb3 \CocoaLigature0 Dushyants-MacBook-Pro:DevOps dushyantdubaria$ history\
+    1  ls\
+    2  cd D\
+    3  cd Desktop/\
+    4  touch DevOps\
+    5  mkdir DevOps\
+    6  mkdir DevOps\
+    7  cd DevOps/\
+    8  ls \
+    9  vagrant status \
+   10  pwd \
+   11  vagrant init bento/centos-7.3\
+   12  vagrant up\
+   13  vagrant --help\
+   14  vagrant up\
+   15  vagrant up\
+   16  vagrant up\
+   17  vagrant provision\
+   18  ls -a\
+   19  ls -al\
+   20  vagrant provision\
+   21  vagrant provision\
+   22  vagrant provision\
+   23  vagrant provision\
+   24  vagrant destroy db\
+   25  vagrant provision\
+   26  vagrant up\
+   27  vagrant provision\
+   28  vagrant up\
+   29  vagrant destroy db\
+   30* vagrant \
+   31  vagrant provision\
+   32  vagrant provision jenkins\
+   33  vagrant provision jenkins\
+   34  vagrant destroy db jenkins\
+   35  vagrant destroy db\
+   36  vagrant --help\
+   37  vagrant destroy db\
+   38  vagrant destroy jenkins\
+   39  vagrant up db jenkins\
+   40  vagrant up db jenkins\
+   41  vagrant provision db\
+   42  vagrant provision db\
+   43  vagrant provision db\
+   44  vagrant provision db\
+   45  vagrant provision db\
+   46  vagrant provision db\
+   47  vagrant provision jenkisn\
+   48  vagrant provision jenkins\
+   49  vagrant provision jenkins\
+   50  vagrant destroy junkins\
+   51  vagrant destroy jenjins\
+   52  vagrant destroy jenkins\
+   53  vagrant destroy jenkins\
+   54  vagrant up jenkins\
+   55  vagrant provision jenkins \
+   56  vagrant destroy jenkins\
+   57  vagrant destroy jenkins\
+   58  y\
+   59  vagrant up jenkins\
+   60  vagrant up jenkins\
+   61  vagrant provision jenkins\
+   62  -p java\
+   63  type -p java\
+   64  vagrant destroy jenkins -y\
+   65  vagrant destroy -y jenkins\
+   66  vagrant destroy y jenkins\
+   67  vagrant destroy jenkins\
+   68  vagrant destroy jenkins\
+   69  vagrant up jenkins\
+   70  vagrant destroy jenkins\
+   71  vagrant destroy jenkins\
+   72  vagrant up jenkins\
+   73  vagrant destroy jenkins\
+   74  vagrant destroy jenkins\
+   75  vagrant destroy jenkins\
+   76  y\
+   77  vagrant destroy jenkins\
+   78  vagrant up jenkins\
+   79  vagrant provision jenkins\
+   80  vagrant provision jenkins\
+   81  vagrant provision jenkins\
+   82  vagrant provision jenkins\
+   83  vagrant provision\
+   84  vagrant suspend\
+   85  vagrant up db\
+   86  vagrant provision db\
+   87  vagrant suspend\
+   88  vagrant suspend junkins\
+   89  vagrant suspend jenkins\
+   90  history\
+\
+\
+Dushyants-MacBook-Pro:~ dushyantdubaria$ history\
+    1  ls\
+    2  cd D\
+    3  cd Desktop/\
+    4  touch DevOps\
+    5  mkdir DevOps\
+    6  mkdir DevOps\
+    7  cd DevOps/\
+    8  ls \
+    9  vagrant status \
+   10  pwd \
+   11  vagrant init bento/centos-7.3\
+   12  vagrant up\
+   13  vagrant --help\
+   14  vagrant up\
+   15  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"\
+   16  brew install ansible\
+   17  brew cask install java\
+   18  vagrant --help\
+   19  history\
+\
+\
+vagrant@jenkins:~$ history\
+    1  sudo cat /var/lib/jenkins/secrets/initialAdminPassword\
+\
+525602a569a04bf9a3ff36bd8b5a27d5\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b \cf4 ubuntu:\cf5  ~ $
+\f0\b0 \cf2  wget http://ftp-nyc.osuosl.org/pub/jenkins/war/latest/jenkins.war\
+--2018-09-05 06:50:09--  http://ftp-nyc.osuosl.org/pub/jenkins/war/latest/jenkins.war\
+Resolving ftp-nyc.osuosl.org (ftp-nyc.osuosl.org)... 64.50.233.100, 2600:3404:200:237::2\
+Connecting to ftp-nyc.osuosl.org (ftp-nyc.osuosl.org)|64.50.233.100|:80... connected.\
+HTTP request sent, awaiting response... 200 OK\
+Length: 75769003 (72M) [application/x-java-archive]\
+Saving to: \'91jenkins.war\'92\
+\
+jenkins.war               100%[==================================>]  72.26M  7.14MB/s    in 9.3s    \
+\
+2018-09-05 06:50:18 (7.81 MB/s) - \'91jenkins.war\'92 saved [75769003/75769003]\
+\
+
+\f1\b \cf4 ubuntu:\cf5  ~ $
+\f0\b0 \cf2  cp jenkins.war /vagrant/\
+
+\f1\b \cf4 ubuntu:\cf5  ~ $
+\f0\b0 \cf2  mv jenkins.war /opt/tomcat/webapps/\
+
+\f1\b \cf4 ubuntu:\cf5  ~ $
+\f0\b0 \cf2  cat /home/ubuntu/.jenkins/secrets/initialAdminPassword\
+f835960d8df64cd2bbac75bd1bfdd4bb\
+
+\f1\b \cf4 ubuntu:\cf5  ~ $
+\f0\b0 \cf2  \
+}

@@ -1,0 +1,7 @@
+[all:vars]
+ansible_python_interpreter=/Users/echou/anaconda/bin/python
+
+[juniper-devices]
+192.168.24.252.xip.io
+
+

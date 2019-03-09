@@ -1,0 +1,259 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;\red220\green161\blue13;}
+{\*\expandedcolortbl;;\cssrgb\c27059\c27059\c27059;\cssrgb\c89412\c68627\c3922;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat12\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs24 \cf2 Project 2:\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2 \
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf2 {\listtext	0.	}Click kubernetes cluster\
+\ls1\ilvl0{\listtext	0.	}Remane cluster name: devops-cluster\
+\ls1\ilvl0{\listtext	0.	}no. of nodes: 3\
+\ls1\ilvl0{\listtext	0.	}Nodes Image type - select: ubuntu\
+\ls1\ilvl0{\listtext	0.	}taking ssh from terminal\
+\ls1\ilvl0{\listtext	0.	}installing gcloud ({\field{\*\fldinst{HYPERLINK "https://cloud.google.com/sdk/docs/downloads-interactive"}}{\fldrslt \cf3 https://cloud.google.com/sdk/docs/downloads-interactive}})\
+\ls1\ilvl0{\listtext	0.	}\
+\ls1\ilvl0{\listtext	0.	}\
+\ls1\ilvl0{\listtext	0.	}LOGSSSS \
+\ls1\ilvl0{\listtext	0.	}\
+\ls1\ilvl0{\listtext	0.	}260  logout \
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2   261  gcloud container clusters get-credentials devops-cluster --zone us-central1-a --project data-oasis-220308\
+  262  kubectl \
+  263  kubectl version\
+  264  kubectl version -o yaml\
+  265  kubectl get componentstatuses\
+  266  kubectl get node\
+  267  kubectl describe node gke-devops-cluster-default-pool-17601f7a-djgd | more\
+  268  \
+  269  kubectl get pods\
+  270  kubectl get -h \
+  271  kubectl get -h | more\
+  272  kubectl get -h | more\
+  273  kubectl get -h | more\
+  274  kubectl get namespaces\
+  275  kubectl get pods --namespaces kube-system \
+  276  kubectl get pods --namespace kube-system\
+  277  kubectl -h | more\
+  278  kubectl top\
+  279  kubectl top node\
+  280  kubectl top pod\
+  281  kubectl top pod -h\
+  282  history\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 \
+\pard\pardeftab560\pardirnatural\partightenfactor0
+\ls2\ilvl0\cf2 {\listtext	0.	}##### creating first pod######\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 kubectl get pods\
+  284  vi mypod.yaml\
+            {\field{\*\fldinst{HYPERLINK "https://kubernetes.io/docs/tutorials/k8s101/"}}{\fldrslt \cf3 https://kubernetes.io/docs/tutorials/k8s101/}}  \
+**************\
+pods/simple-pod.yaml  \
+\
+apiVersion: v1\
+kind: Pod\
+metadata:\
+  name: nginx\
+spec:\
+  containers:\
+  - name: nginx\
+    image: nginx:1.7.9\
+    ports:\
+    - containerPort: 80\
+*****************\
+\
+  285  kubectl create -f mypod.yaml \
+  286  kubectl get pods\
+  287  kubectl get pods\
+  288  kubectl get pods\
+  289 kubectl describe pods nginx | more\
+  291  kubectl delete -h | more\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2   292  kubectl get pods\
+  293  kubectl delete pod nginx\
+  294  history \
+  295  kubectl get pods\
+  296  kubectl get pods\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2 \
+#### pods deployments\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2 298  kubectl cluster-info\
+  299  vi nginxdeployment.yaml\
+\pard\pardeftab560\slleading20\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/"}}{\fldrslt \cf3 https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/}} \
+*********\
+application/deployment.yaml  \
+\
+apiVersion: apps/v1beta2 # for versions before 1.9.0 use apps/v1beta2\
+kind: Deployment\
+metadata:\
+  name: nginx-deployment\
+spec:\
+  selector:\
+    matchLabels:\
+      app: nginx\
+  replicas: 2 # tells deployment to run 2 pods matching the template\
+  template:\
+    metadata:\
+      labels:\
+        app: nginx\
+    spec:\
+      containers:\
+      - name: nginx\
+        image: nginx:1.7.9\
+        ports:\
+        - containerPort: 80\
+***************\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2   300  ls \
+  301  pwd\
+  302  kubectl apply -f nginxdeployment.yaml \
+  303  kubectl get deployments\
+  304  kubectl describe deployment nginx-deployment\
+  305  vi nginxdeployment.yaml\
+  306  kubectl apply -f nginxdeployment.yaml \
+  307  kubectl get deployments\
+  308  kubectl describe deployment nginx-deployment\
+\
+  309  #### scaling pods\
+  310  kubectl get pods\
+  311  kubectl describe pod nginx-deployment-6c54bd5869-8wflg\
+  312  vi nginxdeployment.yaml\
+  313  kubectl get deployments\
+  314  kubectl apply -f nginxdeployment.yaml \
+  315  kubectl get deployments\
+  316  kubectl get pods\
+  317  kubectl get pods\
+  318  kubectl get deployments\
+  319  kubectl get pods\
+  320  kubectl get deployments\
+  321  kubectl get pods\
+  322  vi nginxdeployment.yaml\
+  323  kubectl apply -f nginxdeployment.yaml \
+  324  kubectl get pods\
+  325  kubectl get pods\
+  326  kubectl get deployments\
+  327  kubectl get pods\
+  328  kubectl describe deployment nginx-deployment\
+  329  ### edit version \
+  330  vi nginxdeployment.yaml\
+  331  kubectl apply -f nginxdeployment.yaml \
+  332  vi nginxdeployment.yaml\
+  333  kubectl apply -f nginxdeployment.yaml \
+  334  vi nginxdeployment.yaml\
+  335  kubectl apply -f nginxdeployment.yaml \
+  336  kubectl get pods\
+  337  kubectl get deployments\
+  338  kubectl get deployments\
+  339  kubectl get pods\
+  340  kubectl get pods\
+  341  kubectl describe deployment nginx-deployment\
+  342  kubectl rollout status \
+  343  kubectl rollout status deployment nginx-deployment\
+  344  kubectl rollout history deployment nginx-deployment\
+  345  # kubectl rollout undo deployment nginx-deployment\
+  346  kubectl describe deployment nginx-deployment\
+  347  kubectl rollout undo deployment nginx-deployment\
+  348  kubectl describe deployment nginx-deployment\
+  349  kubectl describe deployment nginx-deployment\
+  350  kubectl get deployments\
+  351  ### delecting the deployment\
+  352  kubectl get all\
+  353  kubectl delete deployment nginx-deployment\
+  354  kubectl get all\
+  355  kubectl get all\
+  356  history \
+\
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+\cf2   357  ##### Deploying PHP Guestbook application with Redis\
+  358  ##### https://kubernetes.io/docs/tutorials/stateless-application/guestbook/\
+  359  vi redis-master-deployment.yaml\
+  360  kubectl get pods\
+  361  kubectl apply -f redis-master-deployment.yaml \
+  362  kubectl get pods\
+  363  kubectl get pods\
+  364  kubectl describe pods redis-master-585798d8ff-w45z4\
+  365   kubectl get pods -w\
+  366  watch  kubectl get pods \
+  367  watch kubectl get pods \
+  368   kubectl get pods \
+  369   kubectl logs redis-master-585798d8ff-w45z4\
+  370  ### database is ready\
+  371  # we will create a service yaml file and deploy it\
+  372  ## Guestbook application need to communicate to the REDIS MASTER DB to write some data, so that to we need to create a  service that will proxy the traffic to the Redis MAster POds\
+  373  vi redis-master-service.yaml\
+  374  vi redis-master-deployment.yaml \
+  375  kubectl apply -f redis-master-service.yaml \
+  376   kubectl get pods \
+  377   kubectl get pods \
+  378   kubectl get service\
+  379  vi redis-slave-deployment.yaml\
+  380  vi redis-slave-deployment.yaml\
+  381  vi redis-slave-deployment.yaml\
+  382  vi redis-master-deployment.yaml \
+  383  vi redis-master-service.yaml \
+  384  kubectl apply -f redis-slave-deployment.yaml \
+  385   kubectl get pods \
+  386   kubectl get pods \
+  387   kubectl get pods \
+  388  vi redis-slave-service.yaml\
+  389  kubectl apply -f redis-slave-service.yaml \
+  390   kubectl get pods \
+  391   kubectl get pods \
+  392   kubectl get service\
+  393  vi frontend-service.yaml\
+  394  vi frontend-service.yaml\
+  395  vi frontend-deployment.yaml\
+  396  kubectl apply -f frontend-deployment.yaml \
+  397   kubectl get pods \
+  398   kubectl get pods \
+  399   kubectl get pods \
+  400  kubectl get pods -l app=guestbook -l tier=frontend\
+  401  kubectl get pods -L tier\
+  402  kubectl get pods -L app\
+  403  kubectl get pods -L app -l app=redis\
+  404  kubectl get pods -l tier=backend\
+  405  kubectl get pods -l tier=backend -L tier\
+  406  kubectl get pods \
+  407  kubectl get services\
+  408  vi frontend-service.yaml\
+  409  vi frontend-service.yaml\
+  410  vi frontend-service.yaml\
+  411  kubectl apply -f frontend-service.yaml \
+  412  kubectl get services\
+  413  kubectl get services\
+  414  kubectl get services\
+  415  kubectl get services\
+  416  kubectl get services\
+\
+  417  ####### delete the pods #####\
+  418  kubectl delete deployment -l app=redis\
+  419  kubectl delete service -l app=redis\
+  420   kubectl delete deployment -l app=guestbook\
+  421  kubectl delete service -l app=guestbook\
+  422  kubectl get pods\
+  423  history \
+\
+\
+\
+\
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+\cf2 \
+\
+\
+\
+\
+\
+\
+\
+}

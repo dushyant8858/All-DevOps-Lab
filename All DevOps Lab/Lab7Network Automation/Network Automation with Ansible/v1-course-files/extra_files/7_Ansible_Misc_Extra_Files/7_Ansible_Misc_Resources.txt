@@ -1,0 +1,12 @@
+
+- Ansible to Cisco IOS via SSH
+http://stackoverflow.com/questions/37207474/ansible-to-cisco-ios-via-ssh-with-authentication-failed-message
+
+- Ubuntu Host Paramiko Error
+https://github.com/pyca/pyopenssl/issues/117
+
+sudo apt-get install libffi-dev
+sudo apt-get install libssl-dev
+sudo apt-get install python-dev
+
+

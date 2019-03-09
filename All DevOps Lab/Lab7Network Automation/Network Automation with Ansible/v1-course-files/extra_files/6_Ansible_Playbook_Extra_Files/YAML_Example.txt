@@ -1,0 +1,18 @@
+1. YAML Ansible Syntax: http://docs.ansible.com/ansible/YAMLSyntax.html
+2. Wiki YAML Page: https://en.wikipedia.org/wiki/YAML
+3. YAML Syntax Validation: http://www.yamllint.com/
+4. Example: 
+
+--- 
+- Fruits: 
+    - Banana
+    - Apple
+    - 
+      Color: Red
+      Size: Big
+
+- Breakfast: 
+    - cereal
+    - milk
+
+

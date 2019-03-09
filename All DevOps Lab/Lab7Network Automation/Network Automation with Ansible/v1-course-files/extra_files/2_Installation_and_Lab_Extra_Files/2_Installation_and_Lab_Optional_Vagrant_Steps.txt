@@ -1,0 +1,9 @@
+mkdir test
+cd test
+vagrant init ubuntu/trusty64
+vagrant up
+vagrant ssh (test your ssh connection)
+vagrant halt
+vagrant destroy (optional)
+
+

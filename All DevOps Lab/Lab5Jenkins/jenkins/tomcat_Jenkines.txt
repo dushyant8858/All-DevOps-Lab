@@ -1,0 +1,28 @@
+  mkdir tomcat
+  377  cd OneDrive/
+  378  cd
+  379  cd tomcat/
+  380  vagrant init emessiha/ubuntu64-java
+  381  vim Vagrantfile
+  382  vagrant up
+    1	wget http://ftp-nyc.osuosl.org/pub/jenkins/war/latest/jenkins.war
+    2  cp jenkins.war /vagrant/
+    3  mv jenkins.war /opt/tomcat/webapps/
+cat /home/ubuntu/.jenkins/secrets/initialAdminPassword n Dawson 10/13/2018 03:00 AM
+330d72c7afc54abeb8e8a3c97a31966f Jenkins
+
+or using java 
+
+apt-get -y install default-jdk
+java -jar jenkins.war
+cat ~/.jenkins/secrets/initialAdminPassword
+
+
+
+sudo ps -ef | grep apt-get
+sudo ps -ef | grep dpkg
+
+sudo apt-get -y install git
+sudo apt-get -y install phpunit
+sudo apt-get -y install php-xdebug
+sudo apt-get -y install php-mysql

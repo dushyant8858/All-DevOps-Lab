@@ -1,0 +1,6 @@
+- EOS Command:
+http://docs.ansible.com/ansible/eos_command_module.html
+
+- EOS Config: 
+http://docs.ansible.com/ansible/eos_config_module.html
+

@@ -1,0 +1,20 @@
+- IOS Command Module
+http://docs.ansible.com/ansible/ios_command_module.html
+
+- IOS Config Module
+http://docs.ansible.com/ansible/ios_config_module.html
+
+- NXOS Command Module
+http://docs.ansible.com/ansible/nxos_command_module.html
+
+- NXOS Config Module
+http://docs.ansible.com/ansible/nxos_config_module.html
+
+- IOS-XR Command Module
+http://docs.ansible.com/ansible/iosxr_command_module.html
+
+- IOS-XR Config Module
+http://docs.ansible.com/ansible/iosxr_config_module.html
+
+
+

@@ -1,0 +1,2 @@
+- A10 Networks Self Module Example
+https://github.com/a10networks/tps-collection/tree/master/Ansible/SimpleCustomModuleExample

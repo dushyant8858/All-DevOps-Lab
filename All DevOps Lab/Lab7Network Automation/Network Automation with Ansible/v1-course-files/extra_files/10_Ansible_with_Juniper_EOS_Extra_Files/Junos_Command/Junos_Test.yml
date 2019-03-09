@@ -1,0 +1,27 @@
+---
+- name: Juniper
+  hosts: "juniper-devices"
+  gather_facts: false
+  connection: local
+
+  vars: 
+    netconf:
+      host: "{{ inventory_hostname }}"
+      username: juniper
+      password: "p@33word"
+      port: 830
+      transport: netconf
+
+  tasks:
+    - name: show version
+      junos_command: 
+        commands: ['show version']
+        provider: "{{ netconf }}"
+      
+      register: output
+
+    - name: show output
+      debug:
+        var: output.stdout
+
+

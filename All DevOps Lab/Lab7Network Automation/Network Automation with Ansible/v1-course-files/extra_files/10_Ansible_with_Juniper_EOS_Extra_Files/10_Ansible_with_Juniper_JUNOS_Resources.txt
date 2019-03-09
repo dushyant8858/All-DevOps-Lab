@@ -1,0 +1,33 @@
+- Module Links
+http://docs.ansible.com/ansible/junos_command_module.html
+http://docs.ansible.com/ansible/junos_config_module.html
+
+- junos-eznc GitHub Page
+https://github.com/Juniper/py-junos-eznc
+
+
+*** Issue I ran Into ***
+
+- Non-descriptive error
+
+TASK [Retrieve Information] ****************************************************
+fatal: [192.168.24.252.xip.io]: FAILED! => {"changed": false, "failed": true, "msg": "junos-eznc >= 1.2.2 is required but does not appear to be installed"}
+
+- This post solved it (specify Python path for PyEZ)
+
+https://github.com/Juniper/ansible-junos-stdlib/issues/107
+
+- Have to Install jxmlease
+
+TASK [Retrieve Information] ****************************************************
+fatal: [192.168.24.252.xip.io]: FAILED! => {"changed": false, "failed": true, "msg": "jxmlease is required but does not appear to be installed"}
+
+  MacBook-Air in ~/Desktop/INE_Ansible/Examples/Junos_Command
+○ → sudo pip install jxmlease
+The directory '/Users/echou/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/Users/echou/Library/Caches/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting jxmlease
+  Downloading jxmlease-1.0.1-py2.py3-none-any.whl
+Installing collected packages: jxmlease
+Successfully installed jxmlease-1.0.1
+
